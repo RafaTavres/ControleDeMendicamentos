@@ -24,11 +24,11 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
         {
             Funcionario funcionario = new Funcionario();
             Console.WriteLine("Nome");
-            funcionario.nome = "1";// Console.ReadLine();
+            funcionario.nome = Console.ReadLine();
             Console.WriteLine("CPF");
-            funcionario.CPF = "1"; //Console.ReadLine();
+            funcionario.CPF = Console.ReadLine();
             Console.WriteLine("Telefone");
-            funcionario.telefone = "1";//Console.ReadLine();
+            funcionario.telefone = Console.ReadLine();
             return funcionario;
         }
         public void MostraTodosFuncionarios()

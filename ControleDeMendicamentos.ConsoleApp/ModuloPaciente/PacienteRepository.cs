@@ -1,4 +1,5 @@
 ﻿using ControleDeMendicamentos.ConsoleApp.ClassesPais;
+using ControleDeMendicamentos.ConsoleApp.ModuleFornecedor;
 using ControleDeMendicamentos.ConsoleApp.ModuloMedicamento;
 using System;
 using System.Collections.Generic;
@@ -10,22 +11,9 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloPaciente
 {
     internal class PacienteRepository : RepositoryBase
     {
-        public void InseriraPacientes(Paciente paciente)
+        public override Paciente Busca(int id)
         {
-            Inserir(paciente);
-        }
-        public void RetornarTodosOsPacientes()
-        {
-            RetornarTodos();
-        }
-        public void AtualizarPacientes(int id, Paciente pacienteAtualizado)
-        {
-            EntidadeBase paciente = (Medicamento)Busca(id);
-            paciente.Atualizar(pacienteAtualizado);
-        }
-        public void DeletarPacientes(int id)
-        {
-            Deletar(id);
+            return (Paciente)base.Busca(id);
         }
     }
 }

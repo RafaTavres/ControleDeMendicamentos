@@ -40,8 +40,8 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
             else
                 telaFornecedor.MostraTodosFornecedor();
             Console.WriteLine("Id do Fornecedor");
-            idBusca = 1;//Convert.ToInt32(Console.ReadLine());
-            aquisicao.fornecedor = (Fornecedor)fornecedorRepository.Busca(idBusca);
+            idBusca = Convert.ToInt32(Console.ReadLine());
+            aquisicao.fornecedor = fornecedorRepository.Busca(idBusca);
 
             Console.Clear();
             if (VerificaListasValidas("medicamento", medicamentoRepository) == false)
@@ -49,11 +49,11 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
             else
                 telaMedicamento.MostraTodosMedicamento();
             Console.WriteLine("Id do Medicamento");
-            idBusca = 1;// Convert.ToInt32(Console.ReadLine());
-            aquisicao.medicamento = (Medicamento)medicamentoRepository.Busca(idBusca);
+            idBusca = Convert.ToInt32(Console.ReadLine());
+            aquisicao.medicamento = medicamentoRepository.Busca(idBusca);
             Console.WriteLine();
             Console.WriteLine("Quantidade do Pedido");
-            aquisicao.quantidadeAdicionada = 10;//Convert.ToInt32(Console.ReadLine());
+            aquisicao.quantidadeAdicionada = Convert.ToInt32(Console.ReadLine());
             aquisicao.medicamento.quantidadeDisponivel += aquisicao.quantidadeAdicionada;
 
             Console.Clear();
@@ -62,8 +62,8 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
             else
                 telaFuncionario.MostraTodosFuncionarios();
             Console.WriteLine("Id do Funcionario");
-            idBusca = 1;// Convert.ToInt32(Console.ReadLine());
-            aquisicao.funcionario = (Funcionario)funcionarioRepository.Busca(idBusca);
+            idBusca = Convert.ToInt32(Console.ReadLine());
+            aquisicao.funcionario = funcionarioRepository.Busca(idBusca);
 
             Console.Clear();
 

@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp
 {
-    internal class EntidadeBase
+    internal abstract class EntidadeBase
     {
         public int id { get; set;}
-        public virtual void Atualizar(EntidadeBase entidadeAtualizada)
-        {
-            id = entidadeAtualizada.id;
-        }
+        public abstract void Atualizar(EntidadeBase entidadeAtualizada);
     }
 }

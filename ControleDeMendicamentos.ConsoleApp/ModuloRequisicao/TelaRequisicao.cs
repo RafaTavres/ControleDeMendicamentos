@@ -40,7 +40,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
                 telaPaciente.MostraTodosPaciente();
             Console.WriteLine("Id do Paciente");
             idBusca = Convert.ToInt32(Console.ReadLine());
-            requisicao.paciente = (Paciente)pacienteRepository.Busca(idBusca);
+            requisicao.paciente = pacienteRepository.Busca(idBusca);
 
             Console.Clear();
             if (VerificaListasValidas("Medicamento", medicamentoRepository) == false)
@@ -49,7 +49,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
                 telaMedicamento.MostraTodosMedicamento();
             Console.WriteLine("Id do Medicamento");
             idBusca = Convert.ToInt32(Console.ReadLine());
-            requisicao.medicamento = (Medicamento)medicamentoRepository.Busca(idBusca);
+            requisicao.medicamento = medicamentoRepository.Busca(idBusca);
 
             Console.Clear();
             if (VerificaListasValidas("Funcionario", funcionarioRepository) == false)
@@ -58,7 +58,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
                 telaFuncionario.MostraTodosFuncionarios();
             Console.WriteLine("Id do Funcionario");
             idBusca = Convert.ToInt32(Console.ReadLine());
-            requisicao.funcionario = (Funcionario)funcionarioRepository.Busca(idBusca);
+            requisicao.funcionario = funcionarioRepository.Busca(idBusca);
 
             Console.Clear();
             Console.WriteLine("Quantidade Retirada");

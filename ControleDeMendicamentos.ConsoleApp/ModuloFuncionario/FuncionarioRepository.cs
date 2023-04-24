@@ -1,4 +1,5 @@
 ﻿using ControleDeMendicamentos.ConsoleApp.ClassesPais;
+using ControleDeMendicamentos.ConsoleApp.ModuleFornecedor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,22 +10,9 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
 {
     internal class FuncionarioRepository : RepositoryBase
     {
-        public void InseriraFuncionarios(Funcionario funcionario)
+        public override Funcionario Busca(int id)
         {
-            Inserir(funcionario);
-        }
-        public void RetornarTodosOsFuncionarios()
-        {
-            RetornarTodos();
-        }
-        public void AtualizarFuncionarios(int id, Funcionario funcionarioAtualizado)
-        {
-            EntidadeBase funcionario = (Funcionario)Busca(id);
-            funcionario.Atualizar(funcionarioAtualizado);
-        }
-        public void DeletarFuncionarios(int id)
-        {
-            Deletar(id);
+            return (Funcionario)base.Busca(id);
         }
     }
 }

@@ -27,11 +27,11 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
         {
             Fornecedor fornecedor = new Fornecedor();
             Console.WriteLine("Nome");
-            fornecedor.nome = "1"; Console.ReadLine();
+            fornecedor.nome = Console.ReadLine();
             Console.WriteLine("Telefone ");
-            fornecedor.telefone = "123457890"; Console.ReadLine();
+            fornecedor.telefone = Console.ReadLine();
             Console.WriteLine("CNPJ");
-            fornecedor.CNPJ = 1234699; Convert.ToInt32(Console.ReadLine());
+            fornecedor.CNPJ = Convert.ToInt32(Console.ReadLine());
             return fornecedor;
         }
         public void MostraTodosFornecedor()
@@ -68,7 +68,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
                 MostraTodosFornecedor();
             Console.WriteLine("ID do Fornecedor: ");
             idBusca = Convert.ToInt32(Console.ReadLine());
-            Fornecedor fornecedor = (Fornecedor)fornecedorRepository.Busca(idBusca);
+            Fornecedor fornecedor = fornecedorRepository.Busca(idBusca);
 
             Console.Clear();
             if (VerificaListasValidas("Medicamento", medicamentoRepository) == false)
@@ -77,7 +77,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
                 telaMedicamento.MostraTodosMedicamento();
             Console.WriteLine("Id do Medicamento");
             idBusca = Convert.ToInt32(Console.ReadLine());
-            fornecedor.medicamentos.Add((Medicamento)medicamentoRepository.Busca(idBusca));
+            fornecedor.medicamentos.Add(medicamentoRepository.Busca(idBusca);
             return fornecedor;
         }
 

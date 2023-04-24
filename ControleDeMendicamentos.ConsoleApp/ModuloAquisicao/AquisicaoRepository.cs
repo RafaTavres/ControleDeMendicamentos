@@ -1,4 +1,5 @@
 ﻿using ControleDeMendicamentos.ConsoleApp.ClassesPais;
+using ControleDeMendicamentos.ConsoleApp.ModuleFornecedor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,22 +10,9 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
 {
     internal class AquisicaoRepository : RepositoryBase
     {
-        public void InseriraMedicamento(Aquisicao aquisicao)
+        public override Aquisicao Busca(int id)
         {
-            Inserir(aquisicao);
-        }
-        public void RetornarTodosOsMedicamentos()
-        {
-            RetornarTodos();
-        }
-        public void AtualizarMedicamentos(int id, Aquisicao aquisicaoAtualizado)
-        {
-            EntidadeBase aquisicao = (Aquisicao)Busca(id);
-            aquisicao.Atualizar(aquisicaoAtualizado);
-        }
-        public void DeletarMedicamentod(int id)
-        {
-            Deletar(id);
+            return (Aquisicao)base.Busca(id);
         }
     }
 }

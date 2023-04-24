@@ -1,4 +1,5 @@
 ﻿using ControleDeMendicamentos.ConsoleApp.ClassesPais;
+using ControleDeMendicamentos.ConsoleApp.ModuleFornecedor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,22 +12,9 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
     {
 
         public List<Medicamento> listaDeMedicamentos = new List<Medicamento>();
-        public void InseriraMedicamento(Medicamento medicamento)
+        public override Medicamento Busca(int id)
         {
-            Inserir(medicamento);
-        }
-        public void RetornarTodosOsMedicamentos()
-        {
-            RetornarTodos();
-        }
-        public void AtualizarMedicamentos(int id, Medicamento medicamentoAtualizado)
-        {
-            EntidadeBase medicamento = (Medicamento)Busca(id);
-            medicamento.Atualizar(medicamentoAtualizado);
-        }
-        public void DeletarMedicamentos(int id)
-        {
-            Deletar(id);
+            return (Medicamento)base.Busca(id);
         }
         public List<Medicamento> RetornarTodosOrdenadosQuantidadeDisponivel()
         {

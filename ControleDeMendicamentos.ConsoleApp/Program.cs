@@ -12,6 +12,7 @@ namespace ControleDeMendicamentos.ConsoleApp
         static void Main(string[] args)
         {
             string opcao = "";
+            #region DeclaraçãoEConecção
             FuncionarioRepository repositorioDeFuncionario = new FuncionarioRepository();
             TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
             telaFuncionarios.funcionarioRepository = repositorioDeFuncionario;
@@ -50,6 +51,7 @@ namespace ControleDeMendicamentos.ConsoleApp
             telaRequisicao.telaFuncionario = telaFuncionarios;
             telaRequisicao.telaMedicamento = telaMedicamento;
 
+                #endregion
 
             while (opcao.ToUpper() != "S")
             {

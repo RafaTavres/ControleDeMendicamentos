@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
 {
-    internal class TelaBase
+    internal abstract class TelaBase
     {
         public void ApresentaMensagem(string mensagem, ConsoleColor cor)
         {
@@ -51,9 +51,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
             while (opcao.ToUpper() != "S");            
         }
 
-        public virtual void MenuEntidade(string opcao)
-        {  
-        }
+        public abstract void MenuEntidade(string opcao);
 
         public void Adiciona(string nomeDaEntidade,EntidadeBase novaEntidade,RepositoryBase repositorio)
         {
@@ -87,10 +85,8 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
             }
         }
 
-        public virtual void EscreveTodasAsEntidades(EntidadeBase a)
-        {
-            Console.WriteLine();
-        }
+        public abstract void EscreveTodasAsEntidades(EntidadeBase a);
+
         public void AtualizarEntidade(RepositoryBase repositorio)
         {
             Console.WriteLine();

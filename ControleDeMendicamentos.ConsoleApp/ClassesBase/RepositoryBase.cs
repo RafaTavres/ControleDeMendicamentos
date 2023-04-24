@@ -25,7 +25,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
             EntidadeBase entidade2 = Busca(id);
             entidade2.Atualizar(entidade);
         }
-        public EntidadeBase Busca(int id)
+        public virtual EntidadeBase Busca(int id)
         {
             EntidadeBase entidade = null;
 
