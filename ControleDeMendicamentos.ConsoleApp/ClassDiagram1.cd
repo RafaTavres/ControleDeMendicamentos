@@ -1,35 +1,185 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="ControleDeMendicamentos.ConsoleApp.Entidades.Fornecedor">
-    <Position X="0.5" Y="3.75" Width="1.5" />
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloRequisicao.Requisicao" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAIAAAAAAAAAAAAAIAAAAAAAACAAAAAA=</HashCode>
-      <FileName>Entidades\Fornecedor.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ControleDeMendicamentos.ConsoleApp.Entidades.Medicamento">
-    <Position X="3" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AQAAAAAEAACAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAgA=</HashCode>
-      <FileName>Entidades\Medicamento.cs</FileName>
+      <HashCode>AAAAEAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAhCAAACAA=</HashCode>
+      <FileName>ModuloRequisicao\Requisicao.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="fornecedor" />
+      <Property Name="medicamento" />
+      <Property Name="paciente" />
+      <Property Name="funcionario" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="ControleDeMendicamentos.ConsoleApp.Entidades.Paciente">
-    <Position X="3" Y="0.75" Width="1.5" />
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloRequisicao.RequisicaoRepository" Collapsed="true">
+    <Position X="1.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAAAAAAABAACAAAAAAAAAAQAAAAAAAAA=</HashCode>
-      <FileName>Entidades\Paciente.cs</FileName>
+      <HashCode>AAAAAAAAAAgAAEAEAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>ModuloRequisicao\RequisicaoRepository.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ControleDeMendicamentos.ConsoleApp.Entidade" Collapsed="true">
-    <Position X="0.5" Y="1" Width="1.5" />
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloRequisicao.TelaRequisicao" Collapsed="true">
+    <Position X="3" Y="8.25" Width="1.5" />
+    <AssociationLine Name="funcionarioRepository" Type="ControleDeMendicamentos.ConsoleApp.ModuloFuncionario.FuncionarioRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.023" Y="8.25" />
+        <Point X="4.023" Y="6.391" />
+        <Point X="3.927" Y="6.391" Type="JumpStart" />
+        <Point X="3.76" Y="6.391" Type="JumpEnd" />
+        <Point X="3.568" Y="6.391" Type="JumpStart" />
+        <Point X="3.401" Y="6.391" Type="JumpEnd" />
+        <Point X="3.05" Y="6.391" />
+        <Point X="3.05" Y="4.491" />
+        <Point X="3.5" Y="4.491" />
+        <Point X="3.5" Y="4.191" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.179" Y="2.056" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="medicamentoRepository" Type="ControleDeMendicamentos.ConsoleApp.ModuloMedicamento.MedicamentoRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3.844" Y="8.25" />
+        <Point X="3.844" Y="6.254" />
+        <Point X="3.188" Y="6.254" />
+        <Point X="3.188" Y="4.491" />
+        <Point X="3.562" Y="4.491" />
+        <Point X="3.562" Y="3.938" />
+        <Point X="3.75" Y="3.938" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.18" Y="-2.307" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Entidade.cs</FileName>
+      <HashCode>EAAAAAggAEAAgBEAABAAABAAIABABCAAAAAAAAgAAAA=</HashCode>
+      <FileName>ModuloRequisicao\TelaRequisicao.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="funcionarioRepository" />
+      <Field Name="medicamentoRepository" />
+      <Field Name="pacienteRepository" />
+      <Field Name="requisicaoRepository" />
+      <Field Name="telaFuncionario" />
+      <Field Name="telaMedicamento" />
+      <Field Name="telaPaciente" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloFuncionario.FuncionarioRepository" Collapsed="true">
+    <Position X="2" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAwAAAAAAAAAAA=</HashCode>
+      <FileName>ModuloFuncionario\FuncionarioRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloMedicamento.MedicamentoRepository" Collapsed="true">
+    <Position X="3.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAgAAGAAIAAAAAAAAAAAAAAAAEABAAAAAAA=</HashCode>
+      <FileName>ModuloMedicamento\MedicamentoRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloPaciente.PacienteRepository" Collapsed="true">
+    <Position X="3.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAACAAAAAAAAAACAEAAAAAAAA=</HashCode>
+      <FileName>ModuloPaciente\PacienteRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloFuncionario.TelaFuncionarios" Collapsed="true">
+    <Position X="5.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAABEAAAAAEAAAAAAABAQgAAAAAQAAgAA=</HashCode>
+      <FileName>ModuloFuncionario\TelaFuncionarios.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloMedicamento.TelaMedicamento" Collapsed="true">
+    <Position X="7.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAAAAAAAAAAAABEAAAACAAAAYEAAAAgQAEIAAQAICAA=</HashCode>
+      <FileName>ModuloMedicamento\TelaMedicamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloPaciente.TelaPaciente" Collapsed="true">
+    <Position X="6.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ECAAAAAAAAAAABEAAAACABAAAAAAAAAACEAAAAAQAAA=</HashCode>
+      <FileName>ModuloPaciente\TelaPaciente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloMedicamento.Medicamento" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAEAACAAAAAAQAAAAAAAAAAAgAAAAAgAAAAAAA=</HashCode>
+      <FileName>ModuloMedicamento\Medicamento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloPaciente.Paciente" Collapsed="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAABAACAAAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>ModuloPaciente\Paciente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloFuncionario.Funcionario" Collapsed="true">
+    <Position X="1" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAIAAAAAAAACAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ModuloFuncionario\Funcionario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloAquisicao.Aquisicao" Collapsed="true">
+    <Position X="1.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAAgCAAACgA=</HashCode>
+      <FileName>ModuloAquisicao\Aquisicao.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="medicamento" />
+      <Property Name="fornecedor" />
+      <Property Name="funcionario" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuleFornecedor.Fornecedor" Collapsed="true">
+    <Position X="3" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAIAAAAAAAAAAAAAIAAAAAAAgCAAAAAA=</HashCode>
+      <FileName>ModuleFornecedor\Fornecedor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="medicamentos" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="System.Collections.Generic.List&lt;T&gt;" Collapsed="true">
+    <Position X="1.25" Y="10" Width="1.25" />
+    <NestedTypes>
+      <Class Name="System.Collections.Generic.List&lt;T&gt;.Enumerator" Collapsed="true">
+        <TypeIdentifier />
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuleFornecedor.FornecedorRepository" Collapsed="true">
+    <Position X="8" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAEAEAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>ModuleFornecedor\FornecedorRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControleDeMendicamentos.ConsoleApp.ModuleFornecedor.TelaFornecedor" Collapsed="true">
+    <Position X="8" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAABFECBAgBAAAIAAAAAAAAAAAAQAACAQ=</HashCode>
+      <FileName>ModuleFornecedor\TelaFornecedor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="fornecedorRepository" />
+      <Field Name="medicamentoRepository" />
+      <Field Name="telaMedicamento" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

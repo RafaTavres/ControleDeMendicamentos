@@ -28,6 +28,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
         public Entidade Busca(int id)
         {
             Entidade entidade = null;
+
             foreach (Entidade a in listaEntidades)
             {
                 if (a.id == id)
