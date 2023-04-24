@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
 {
-    internal class Tela
+    internal class TelaBase
     {
         public void ApresentaMensagem(string mensagem, ConsoleColor cor)
         {
@@ -25,7 +25,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
             else
                 return false;
         }
-        public bool VerificaListasValidas(string tipo, Repository repository)
+        public bool VerificaListasValidas(string tipo, RepositoryBase repository)
         {
             if (repository.RetornarTodos().Count == 0)
             {
@@ -55,7 +55,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
         {  
         }
 
-        public void Adiciona(string nomeDaEntidade,Entidade novaEntidade,Repository repositorio)
+        public void Adiciona(string nomeDaEntidade,EntidadeBase novaEntidade,RepositoryBase repositorio)
         {
             if (VerificaObjetosVazio(novaEntidade) == true)
             {
@@ -68,39 +68,39 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
                 ApresentaMensagem($"{nomeDaEntidade} Adicionado(a)", ConsoleColor.Green);
             }
         }
-        public virtual Entidade PegaDadosEntidade()
+        public virtual EntidadeBase PegaDadosEntidade()
         {
             Console.Clear();
-            Entidade entidade = new Entidade();
+            EntidadeBase entidade = new EntidadeBase();
             return entidade;
         }
-        public void MostraTodasEntidade(string tipoDeEntidade,Repository repositorio)
+        public void MostraTodasEntidade(string tipoDeEntidade,RepositoryBase repositorio)
         {
             Console.WriteLine($"{tipoDeEntidade}: ");
             Console.WriteLine("____________________________________________________________________________");
             if (VerificaListasValidas(tipoDeEntidade, repositorio) == true)
             {
-                foreach (Entidade a in repositorio.RetornarTodos())
+                foreach (EntidadeBase a in repositorio.RetornarTodos())
                 {
                     EscreveTodasAsEntidades(a);
                 }
             }
         }
 
-        public virtual void EscreveTodasAsEntidades(Entidade a)
+        public virtual void EscreveTodasAsEntidades(EntidadeBase a)
         {
             Console.WriteLine();
         }
-        public void AtualizarEntidade(Repository repositorio)
+        public void AtualizarEntidade(RepositoryBase repositorio)
         {
             Console.WriteLine();
             Console.WriteLine("Id para Editar: ");
             int idParaEditar = Convert.ToInt32(Console.ReadLine());
-            Entidade entidade = PegaDadosEntidade();
+            EntidadeBase entidade = PegaDadosEntidade();
             repositorio.Atualizar(idParaEditar, entidade);
         }
 
-        public void DeletaEntidade(Repository repositorio)
+        public void DeletaEntidade(RepositoryBase repositorio)
         {
             Console.WriteLine();
             Console.WriteLine("Id para Deletar: ");

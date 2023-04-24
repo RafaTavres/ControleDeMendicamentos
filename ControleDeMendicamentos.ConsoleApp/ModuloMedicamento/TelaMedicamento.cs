@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
 {
-    internal class TelaMedicamento : Tela
+    internal class TelaMedicamento : TelaBase
     {
         public MedicamentoRepository medicamentoRepository = null;
         public FornecedorRepository fornecedorRepository = null;
@@ -26,7 +26,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
             Adiciona("Medicamento", medicamento, medicamentoRepository);
             medicamentoRepository.listaDeMedicamentos.Add(medicamento);
         }
-        public override Entidade PegaDadosEntidade()
+        public override EntidadeBase PegaDadosEntidade()
         {
             Medicamento medicamento = new Medicamento();
             Console.WriteLine("Nome: ");
@@ -47,7 +47,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
         {
             MostraTodasEntidadeOrdenadas("Medicamento", medicamentoRepository);
         }
-        public override void EscreveTodasAsEntidades(Entidade entidade)
+        public override void EscreveTodasAsEntidades(EntidadeBase entidade)
         {
             Medicamento f = (Medicamento)entidade;
             Console.WriteLine($"id: {f.id} | nome: {f.nome} | bula: {f.bula} | Quantidade Disponivel: {f.quantidadeDisponivel}| descrição : {f.descricao} | Quantidade Retirada : {f.quantidadeDeRetiradas}");
@@ -98,25 +98,25 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
                 Console.ReadKey();
             }
         }
-        public void MostraTodasEntidadeOrdenadas(string tipoDeEntidade, Repository repositorio)
+        public void MostraTodasEntidadeOrdenadas(string tipoDeEntidade, RepositoryBase repositorio)
         {
             Console.WriteLine($"{tipoDeEntidade}: ");
             Console.WriteLine("____________________________________________________________________________");
             if (VerificaListasValidas(tipoDeEntidade, repositorio) == true)
             {
-                foreach (Entidade a in medicamentoRepository.RetornarTodosOrdenadosQuantidadeDisponivel())
+                foreach (EntidadeBase a in medicamentoRepository.RetornarTodosOrdenadosQuantidadeDisponivel())
                 {
                     EscreveTodasAsEntidades(a);
                 }
             }
         }
-        public void MostrarOsMEdicamentosMaisRetirados(string tipoDeEntidade, Repository repositorio)
+        public void MostrarOsMEdicamentosMaisRetirados(string tipoDeEntidade, RepositoryBase repositorio)
         {
             Console.WriteLine($"{tipoDeEntidade}: ");
             Console.WriteLine("____________________________________________________________________________");
             if (VerificaListasValidas(tipoDeEntidade, repositorio) == true)
             {
-                foreach (Entidade a in medicamentoRepository.RetornarTodosOrdenadosPorRetirada())
+                foreach (EntidadeBase a in medicamentoRepository.RetornarTodosOrdenadosPorRetirada())
                 {
                     EscreveTodasAsEntidades(a);
                 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
 {
-    internal class Funcionario : Entidade
+    internal class Funcionario : EntidadeBase
     {
         public string nome { get; set; }
         public string CPF { get; set; }
@@ -15,7 +15,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
         //public string login { get; set; }
         //public string senha { get; set; }
         #endregion
-        public override void Atualizar(Entidade entidadeAtualizada)
+        public override void Atualizar(EntidadeBase entidadeAtualizada)
         {
             Funcionario funcionario = (Funcionario)entidadeAtualizada;
             nome = funcionario.nome;

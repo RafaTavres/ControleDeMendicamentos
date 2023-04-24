@@ -9,7 +9,7 @@ using ControleDeMendicamentos.ConsoleApp.ModuloPaciente;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
 {
-    internal class Requisicao : Entidade
+    internal class Requisicao : EntidadeBase
     {
         public Medicamento medicamento { get; set; }
         public Paciente paciente { get; set; }
@@ -17,7 +17,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
         public int quantidadeRetirada { get; set; }
         public DateTime dataDaRetirada { get; set; }
 
-        public override void Atualizar(Entidade entidadeAtualizada)
+        public override void Atualizar(EntidadeBase entidadeAtualizada)
         {
             Requisicao requisicao = (Requisicao)entidadeAtualizada;
             paciente = requisicao.paciente;

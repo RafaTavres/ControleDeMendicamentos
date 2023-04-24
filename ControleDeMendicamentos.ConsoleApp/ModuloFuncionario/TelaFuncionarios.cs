@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
 {
-    internal class TelaFuncionarios : Tela
+    internal class TelaFuncionarios : TelaBase
     {
         public FuncionarioRepository funcionarioRepository = null;
 
@@ -20,7 +20,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
             Funcionario funcionario = (Funcionario)PegaDadosEntidade();
             Adiciona("Funcionário", funcionario, funcionarioRepository);
         }
-        public override Entidade PegaDadosEntidade()
+        public override EntidadeBase PegaDadosEntidade()
         {
             Funcionario funcionario = new Funcionario();
             Console.WriteLine("Nome");
@@ -35,7 +35,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
         {
             MostraTodasEntidade("Funcionario", funcionarioRepository);
         }
-        public override void EscreveTodasAsEntidades(Entidade entidade)
+        public override void EscreveTodasAsEntidades(EntidadeBase entidade)
         {
             Funcionario f = (Funcionario)entidade;
             Console.WriteLine($"id: {f.id} | nome: {f.nome} | CPF: {f.CPF} | telefone: {f.telefone}");

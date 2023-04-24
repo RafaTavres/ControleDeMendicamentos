@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
 {
-    internal class TelaAquisicao : Tela
+    internal class TelaAquisicao : TelaBase
     {
         public AquisicaoRepository aquisicaoRepository = null;
         public FornecedorRepository fornecedorRepository = null;
@@ -30,7 +30,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
             Adiciona("Aquisição", aquisicao, aquisicaoRepository);
 
         }
-        public override Entidade PegaDadosEntidade()
+        public override EntidadeBase PegaDadosEntidade()
         {
             int idBusca = 0;
             Aquisicao aquisicao = new Aquisicao();
@@ -76,7 +76,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
         {
             MostraTodasEntidade("Aquisicao", aquisicaoRepository);
         }
-        public override void EscreveTodasAsEntidades(Entidade entidade)
+        public override void EscreveTodasAsEntidades(EntidadeBase entidade)
         {
             Aquisicao f = (Aquisicao)entidade;
             Console.WriteLine($"id: {f.id} | Fornecedor: {f.fornecedor.nome} | Medicamento: {f.medicamento.nome} | Funcionário: {f.funcionario.nome} | Data da Retirada: {f.dataDaRetirada.ToString("dd/MMM/yyyy")}  | Quantidade Retirada: {f.quantidadeAdicionada}  ");

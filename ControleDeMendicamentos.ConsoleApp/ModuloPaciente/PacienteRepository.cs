@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloPaciente
 {
-    internal class PacienteRepository : Repository
+    internal class PacienteRepository : RepositoryBase
     {
         public void InseriraPacientes(Paciente paciente)
         {
@@ -20,7 +20,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloPaciente
         }
         public void AtualizarPacientes(int id, Paciente pacienteAtualizado)
         {
-            Entidade paciente = (Medicamento)Busca(id);
+            EntidadeBase paciente = (Medicamento)Busca(id);
             paciente.Atualizar(pacienteAtualizado);
         }
         public void DeletarPacientes(int id)

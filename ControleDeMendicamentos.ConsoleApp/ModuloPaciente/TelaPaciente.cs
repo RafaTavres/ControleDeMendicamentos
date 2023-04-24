@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloPaciente
 {
-    internal class TelaPaciente : Tela
+    internal class TelaPaciente : TelaBase
     {
 
         public PacienteRepository pacienteRepository = null;
@@ -21,7 +21,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloPaciente
             Paciente paciente = (Paciente)PegaDadosEntidade();
             Adiciona("Paciente", paciente, pacienteRepository);
         }
-        public override Entidade PegaDadosEntidade()
+        public override EntidadeBase PegaDadosEntidade()
         {
             Paciente paciente = new Paciente();
             Console.WriteLine("Nome");
@@ -38,7 +38,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloPaciente
         {
             MostraTodasEntidade("Paciente", pacienteRepository);
         }
-        public override void EscreveTodasAsEntidades(Entidade entidade)
+        public override void EscreveTodasAsEntidades(EntidadeBase entidade)
         {
             Paciente f = (Paciente)entidade;
             Console.WriteLine($"id: {f.id} | nome: {f.nome} | CPF: {f.CPF} | telefone: {f.numeroDeTelefone}| numero do SUS: {f.numeroSUS}");

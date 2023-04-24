@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
 {
-    internal class Repository
+    internal class RepositoryBase
     {
-        public int id = 1;
-        public List<Entidade> listaEntidades = new List<Entidade>();
-        public int IncrementaId()
+        protected int id = 1;
+        protected List<EntidadeBase> listaEntidades = new List<EntidadeBase>();
+        private int IncrementaId()
         {
             return id++;
         }
-        public void Inserir(Entidade entidade)
+        public void Inserir(EntidadeBase entidade)
         {
             entidade.id = id;
             listaEntidades.Add(entidade);
             IncrementaId();
         }
-        public void Atualizar(int id, Entidade entidade)
+        public void Atualizar(int id, EntidadeBase entidade)
         {
-            Entidade entidade2 = Busca(id);
+            EntidadeBase entidade2 = Busca(id);
             entidade2.Atualizar(entidade);
         }
-        public Entidade Busca(int id)
+        public EntidadeBase Busca(int id)
         {
-            Entidade entidade = null;
+            EntidadeBase entidade = null;
 
-            foreach (Entidade a in listaEntidades)
+            foreach (EntidadeBase a in listaEntidades)
             {
                 if (a.id == id)
                 {
@@ -41,7 +41,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
         }
         public void Deletar(int id)
         {
-            foreach (Entidade a in listaEntidades)
+            foreach (EntidadeBase a in listaEntidades)
             {
                 
                 if (Busca(id).Equals(a))
@@ -51,7 +51,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
                 }
             }
         }
-        public List<Entidade> RetornarTodos()
+        public List<EntidadeBase> RetornarTodos()
         {
             return listaEntidades;
         }

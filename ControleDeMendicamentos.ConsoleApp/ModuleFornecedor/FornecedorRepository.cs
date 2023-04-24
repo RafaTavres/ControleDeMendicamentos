@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
 {
-    internal class FornecedorRepository : Repository
+    internal class FornecedorRepository : RepositoryBase
     {
-        public void InseriraMedicamento(Fornecedor fornecedor)
+        public void InseriraFornecedor(Fornecedor fornecedor)
         {
             Inserir(fornecedor);
         }
-        public void RetornarTodosOsMedicamentos()
+        public void RetornarTodosOsFornecedor()
         {
             RetornarTodos();
         }
-        public void AtualizarMedicamentos(int id, Fornecedor fornecedorAtualizado)
+        public void AtualizarFornecedor(int id, Fornecedor fornecedorAtualizado)
         {
-            Entidade fornecedor = (Fornecedor)Busca(id);
+            EntidadeBase fornecedor = (Fornecedor)Busca(id);
             fornecedor.Atualizar(fornecedorAtualizado);
         }
-        public void DeletarMedicamentod(int id)
+        public void DeletarFornecedor(int id)
         {
             Deletar(id);
         }

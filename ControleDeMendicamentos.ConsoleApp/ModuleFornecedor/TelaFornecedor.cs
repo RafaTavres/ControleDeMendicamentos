@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
 {
-    internal class TelaFornecedor : Tela
+    internal class TelaFornecedor : TelaBase
     {
         public FornecedorRepository fornecedorRepository = null;
         public MedicamentoRepository medicamentoRepository = null;
@@ -23,7 +23,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
             Fornecedor fornecedor = (Fornecedor)PegaDadosEntidade();
             Adiciona("Fornecedor", fornecedor, fornecedorRepository);
         }
-        public override Entidade PegaDadosEntidade()
+        public override EntidadeBase PegaDadosEntidade()
         {
             Fornecedor fornecedor = new Fornecedor();
             Console.WriteLine("Nome");
@@ -38,7 +38,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
         {
             MostraTodasEntidade("Fornecedor", fornecedorRepository);
         }
-        public override void EscreveTodasAsEntidades(Entidade entidade)
+        public override void EscreveTodasAsEntidades(EntidadeBase entidade)
         {
             Fornecedor f = (Fornecedor)entidade;
             Console.WriteLine($"id: {f.id} | nome: {f.nome} | CNPJ: {f.CNPJ} | telefone: {f.telefone}");
@@ -58,7 +58,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
         {
             DeletaEntidade(fornecedorRepository);
         }
-        public Entidade AdicionaMedicamentosAoFornecedor()
+        public EntidadeBase AdicionaMedicamentosAoFornecedor()
         {
             int idBusca = 0;
             Console.Clear();

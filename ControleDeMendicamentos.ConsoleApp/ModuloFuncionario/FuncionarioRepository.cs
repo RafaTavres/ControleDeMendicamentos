@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
 {
-    internal class FuncionarioRepository : Repository
+    internal class FuncionarioRepository : RepositoryBase
     {
         public void InseriraFuncionarios(Funcionario funcionario)
         {
@@ -19,7 +19,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
         }
         public void AtualizarFuncionarios(int id, Funcionario funcionarioAtualizado)
         {
-            Entidade funcionario = (Funcionario)Busca(id);
+            EntidadeBase funcionario = (Funcionario)Busca(id);
             funcionario.Atualizar(funcionarioAtualizado);
         }
         public void DeletarFuncionarios(int id)

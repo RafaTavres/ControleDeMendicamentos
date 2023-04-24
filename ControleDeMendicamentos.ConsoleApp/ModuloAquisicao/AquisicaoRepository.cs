@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
 {
-    internal class AquisicaoRepository : Repository
+    internal class AquisicaoRepository : RepositoryBase
     {
         public void InseriraMedicamento(Aquisicao aquisicao)
         {
@@ -19,7 +19,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
         }
         public void AtualizarMedicamentos(int id, Aquisicao aquisicaoAtualizado)
         {
-            Entidade aquisicao = (Aquisicao)Busca(id);
+            EntidadeBase aquisicao = (Aquisicao)Busca(id);
             aquisicao.Atualizar(aquisicaoAtualizado);
         }
         public void DeletarMedicamentod(int id)

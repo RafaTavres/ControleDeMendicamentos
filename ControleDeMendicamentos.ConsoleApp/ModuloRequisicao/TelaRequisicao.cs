@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
 {
-    internal class TelaRequisicao : Tela
+    internal class TelaRequisicao : TelaBase
     {
         public RequisicaoRepository requisicaoRepository = null;
         public PacienteRepository pacienteRepository = null;
@@ -29,7 +29,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
             Requisicao requisicao = (Requisicao)PegaDadosEntidade();
             Adiciona("Requisição", requisicao, requisicaoRepository);
         }
-        public override Entidade PegaDadosEntidade()
+        public override EntidadeBase PegaDadosEntidade()
         {
             int idBusca = 0;
             Requisicao requisicao = new Requisicao();
@@ -81,7 +81,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
         {
             MostraTodasEntidade("Requisicao", requisicaoRepository);
         }
-        public override void EscreveTodasAsEntidades(Entidade entidade)
+        public override void EscreveTodasAsEntidades(EntidadeBase entidade)
         {
             Requisicao f = (Requisicao)entidade;
             Console.WriteLine($"id: {f.id} | Paciente: {f.paciente.nome} | Medicamento: {f.medicamento.nome} | Funcionário: {f.funcionario.nome} | Data da Retirada: {f.dataDaRetirada.ToString("dd/MMM/yyyy")}  | Quantidade Retirada: {f.quantidadeRetirada}");

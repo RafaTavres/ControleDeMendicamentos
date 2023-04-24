@@ -7,7 +7,7 @@ using ControleDeMendicamentos.ConsoleApp.ModuloRequisicao;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
 {
-    internal class Medicamento : Entidade
+    internal class Medicamento : EntidadeBase
     {
         public string nome { get; set; }
         public string descricao { get; set; }
@@ -15,7 +15,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
         //public int quantidadeLimite { get; set; }
         public int quantidadeDeRetiradas { get; set; }
         public string bula { get; set; }
-        public override void Atualizar(Entidade entidadeAtualizada)
+        public override void Atualizar(EntidadeBase entidadeAtualizada)
         {
             Medicamento medicamento = (Medicamento)entidadeAtualizada;
             nome = medicamento.nome;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
 {
-    internal class MedicamentoRepository : Repository
+    internal class MedicamentoRepository : RepositoryBase
     {
 
         public List<Medicamento> listaDeMedicamentos = new List<Medicamento>();
@@ -21,7 +21,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
         }
         public void AtualizarMedicamentos(int id, Medicamento medicamentoAtualizado)
         {
-            Entidade medicamento = (Medicamento)Busca(id);
+            EntidadeBase medicamento = (Medicamento)Busca(id);
             medicamento.Atualizar(medicamentoAtualizado);
         }
         public void DeletarMedicamentos(int id)

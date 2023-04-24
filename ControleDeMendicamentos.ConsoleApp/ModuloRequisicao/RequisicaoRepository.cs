@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
 {
-    internal class RequisicaoRepository : Repository
+    internal class RequisicaoRepository : RepositoryBase
     {
         public void InseriraMedicamento(Requisicao requisicao)
         {
@@ -19,7 +19,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
         }
         public void AtualizarMedicamentos(int id, Requisicao requisicaoAtualizada)
         {
-            Entidade requisicao = (Requisicao)Busca(id);
+            EntidadeBase requisicao = (Requisicao)Busca(id);
             requisicao.Atualizar(requisicaoAtualizada);
         }
         public void DeletarMedicamentod(int id)

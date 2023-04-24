@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloPaciente
 {
-    internal class Paciente : Entidade
+    internal class Paciente : EntidadeBase
     {
         public string nome { get; set; }
         public string CPF { get; set; }
         public string numeroDeTelefone { get; set; }
         public string numeroSUS { get; set; }
-        public override void Atualizar(Entidade entidadeAtualizada)
+        public override void Atualizar(EntidadeBase entidadeAtualizada)
         {
             Paciente paciente = (Paciente)entidadeAtualizada;
             nome = paciente.nome;

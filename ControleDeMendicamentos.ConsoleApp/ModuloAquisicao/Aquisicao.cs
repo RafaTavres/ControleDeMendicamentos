@@ -9,14 +9,14 @@ using ControleDeMendicamentos.ConsoleApp.ModuloMedicamento;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
 {
-    internal class Aquisicao : Entidade
+    internal class Aquisicao : EntidadeBase
     {
         public Fornecedor fornecedor { get; set; }
         public Medicamento medicamento { get; set; }
         public Funcionario funcionario { get; set; }
         public int quantidadeAdicionada { get; set; }
         public DateTime dataDaRetirada { get; set; }
-        public override void Atualizar(Entidade entidadeAtualizada)
+        public override void Atualizar(EntidadeBase entidadeAtualizada)
         {
             Aquisicao aquisicao = (Aquisicao)entidadeAtualizada;
             fornecedor = aquisicao.fornecedor;
