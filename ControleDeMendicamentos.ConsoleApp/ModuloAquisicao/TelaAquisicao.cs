@@ -12,13 +12,24 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
 {
     internal class TelaAquisicao : TelaBase
     {
-        public AquisicaoRepository aquisicaoRepository = null;
-        public FornecedorRepository fornecedorRepository = null;
-        public MedicamentoRepository medicamentoRepository = null;
-        public FuncionarioRepository funcionarioRepository = null;
-        public TelaFornecedor telaFornecedor = null;
-        public TelaMedicamento telaMedicamento = null;
-        public TelaFuncionarios telaFuncionario = null;
+        public AquisicaoRepository aquisicaoRepository;
+        public FornecedorRepository fornecedorRepository ;
+        public MedicamentoRepository medicamentoRepository ;
+        public FuncionarioRepository funcionarioRepository ;
+        public TelaFornecedor telaFornecedor ;
+        public TelaMedicamento telaMedicamento ;
+        public TelaFuncionarios telaFuncionario ;
+
+        public TelaAquisicao(AquisicaoRepository aquisicaoRepository, FornecedorRepository fornecedorRepository, MedicamentoRepository medicamentoRepository, FuncionarioRepository funcionarioRepository, TelaFornecedor telaFornecedor, TelaMedicamento telaMedicamento, TelaFuncionarios telaFuncionario)
+        {
+            this.aquisicaoRepository = aquisicaoRepository;
+            this.fornecedorRepository = fornecedorRepository;
+            this.medicamentoRepository = medicamentoRepository;
+            this.funcionarioRepository = funcionarioRepository;
+            this.telaFornecedor = telaFornecedor;
+            this.telaMedicamento = telaMedicamento;
+            this.telaFuncionario = telaFuncionario;
+        }
 
         public void MenuAquisicao(string opcao)
         {

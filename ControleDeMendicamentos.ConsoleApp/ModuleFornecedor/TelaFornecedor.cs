@@ -10,10 +10,22 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
 {
     internal class TelaFornecedor : TelaBase
     {
-        public FornecedorRepository fornecedorRepository = null;
-        public MedicamentoRepository medicamentoRepository = null;
-        public TelaMedicamento telaMedicamento = null;
+        FornecedorRepository fornecedorRepository;
+        MedicamentoRepository medicamentoRepository;
+        TelaMedicamento telaMedicamento;
+        public TelaFornecedor
+            (
+            FornecedorRepository fornecedorRepository, 
+            MedicamentoRepository medicamentoRepository, 
+            TelaMedicamento telaMedicamento
+            )
+        {
+            this.medicamentoRepository = medicamentoRepository;
+            this.fornecedorRepository = fornecedorRepository;
+            this.telaMedicamento = telaMedicamento;
+        }
 
+        
         public void MenuFornecedor(string opcao)
         {
             MenuInicial("Fornecedor", opcao);
@@ -77,7 +89,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
                 telaMedicamento.MostraTodosMedicamento();
             Console.WriteLine("Id do Medicamento");
             idBusca = Convert.ToInt32(Console.ReadLine());
-            fornecedor.medicamentos.Add(medicamentoRepository.Busca(idBusca);
+            fornecedor.medicamentos.Add(medicamentoRepository.Busca(idBusca));
             return fornecedor;
         }
 

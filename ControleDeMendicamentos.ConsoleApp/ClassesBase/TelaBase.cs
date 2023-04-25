@@ -66,12 +66,8 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
                 ApresentaMensagem($"{nomeDaEntidade} Adicionado(a)", ConsoleColor.Green);
             }
         }
-        public virtual EntidadeBase PegaDadosEntidade()
-        {
-            Console.Clear();
-            EntidadeBase entidade = new EntidadeBase();
-            return entidade;
-        }
+        public abstract EntidadeBase PegaDadosEntidade();
+ 
         public void MostraTodasEntidade(string tipoDeEntidade,RepositoryBase repositorio)
         {
             Console.WriteLine($"{tipoDeEntidade}: ");

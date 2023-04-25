@@ -10,6 +10,10 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
 {
     internal class AquisicaoRepository : RepositoryBase
     {
+        public AquisicaoRepository(List<EntidadeBase> listaDeEntidades)
+        {
+            this.listaEntidades = listaDeEntidades;
+        }
         public override Aquisicao Busca(int id)
         {
             return (Aquisicao)base.Busca(id);

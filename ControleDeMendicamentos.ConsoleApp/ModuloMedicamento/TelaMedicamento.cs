@@ -12,9 +12,12 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
 {
     internal class TelaMedicamento : TelaBase
     {
-        public MedicamentoRepository medicamentoRepository = null;
-        public FornecedorRepository fornecedorRepository = null;
-        public TelaFornecedor telaFornecedor = null;
+        public MedicamentoRepository medicamentoRepository;
+
+        public TelaMedicamento(MedicamentoRepository medicamentoRepository)
+        {
+            this.medicamentoRepository = medicamentoRepository;
+        }
 
         public void MenuMedicamento(string opcao)
         {
@@ -45,12 +48,16 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
         }
         public void MostraMedicamentoEmFalta()
         {
-            MostraTodasEntidadeOrdenadas("Medicamento", medicamentoRepository);
+            RetornaListaDeMedicamentosOrdenadasPorQuantidadeDisponivel("Medicamento", medicamentoRepository);
+        }
+        public void MostraMedicamentosMaisRetirados()
+        {
+            RetornaListaDeMedicamentosOrdenadasPorQuantidadeDeRetiradas("Medicamento", medicamentoRepository);
         }
         public override void EscreveTodasAsEntidades(EntidadeBase entidade)
         {
             Medicamento f = (Medicamento)entidade;
-            Console.WriteLine($"id: {f.id} | nome: {f.nome} | bula: {f.bula} | Quantidade Disponivel: {f.quantidadeDisponivel}| descrição : {f.descricao} | Quantidade Retirada : {f.quantidadeDeRetiradas}");
+            Console.WriteLine($"id: {f.id} | nome: {f.nome} | bula: {f.bula} | Quantidade Disponivel: {f.quantidadeDisponivel}| descrição : {f.descricao} | Quantidade de Retiradas : {f.quantidadeDeRetiradas}");
         }
         public void AtualizarMedicamento()
         {
@@ -94,11 +101,11 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
             if (opcao == "6")
             {
                 Console.Clear();
-                MostraMedicamentoEmFalta();
+                MostraMedicamentosMaisRetirados();
                 Console.ReadKey();
             }
         }
-        public void MostraTodasEntidadeOrdenadas(string tipoDeEntidade, RepositoryBase repositorio)
+        public void RetornaListaDeMedicamentosOrdenadasPorQuantidadeDisponivel(string tipoDeEntidade, RepositoryBase repositorio)
         {
             Console.WriteLine($"{tipoDeEntidade}: ");
             Console.WriteLine("____________________________________________________________________________");
@@ -110,7 +117,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
                 }
             }
         }
-        public void MostrarOsMEdicamentosMaisRetirados(string tipoDeEntidade, RepositoryBase repositorio)
+        public void RetornaListaDeMedicamentosOrdenadasPorQuantidadeDeRetiradas(string tipoDeEntidade, RepositoryBase repositorio)
         {
             Console.WriteLine($"{tipoDeEntidade}: ");
             Console.WriteLine("____________________________________________________________________________");
@@ -128,7 +135,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
             {
                 Console.Clear();
                 Console.WriteLine($"----Menu {nome}----\n");
-                Console.WriteLine($"1- Adicionar {nome} | 2- Ver {nome} | 3- Atualizar {nome} | 4- Deletar {nome} | 5- Mostrar medicamentos em falta | 6- Mostrar medicamentos masi retirados| S- Sair");
+                Console.WriteLine($"1- Adicionar {nome} | 2- Ver {nome} | 3- Atualizar {nome} | 4- Deletar {nome} | 5- Mostrar medicamentos em falta | 6- Mostrar medicamentos mais retirados| S- Sair");
                 opcao = Console.ReadLine();
                 MenuEntidade(opcao);
 

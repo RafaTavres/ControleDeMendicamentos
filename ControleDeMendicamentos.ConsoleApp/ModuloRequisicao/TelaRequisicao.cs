@@ -12,13 +12,24 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
 {
     internal class TelaRequisicao : TelaBase
     {
-        public RequisicaoRepository requisicaoRepository = null;
-        public PacienteRepository pacienteRepository = null;
-        public MedicamentoRepository medicamentoRepository = null;
-        public FuncionarioRepository funcionarioRepository = null;
-        public TelaPaciente telaPaciente = null;
-        public TelaMedicamento telaMedicamento = null;
-        public TelaFuncionarios telaFuncionario = null;
+        public RequisicaoRepository requisicaoRepository;
+        public PacienteRepository pacienteRepository;
+        public MedicamentoRepository medicamentoRepository;
+        public FuncionarioRepository funcionarioRepository;
+        public TelaPaciente telaPaciente;
+        public TelaMedicamento telaMedicamento;
+        public TelaFuncionarios telaFuncionario;
+
+        public TelaRequisicao(RequisicaoRepository requisicaoRepository, PacienteRepository pacienteRepository, MedicamentoRepository medicamentoRepository, FuncionarioRepository funcionarioRepository, TelaPaciente telaPaciente, TelaMedicamento telaMedicamento, TelaFuncionarios telaFuncionario)
+        {
+            this.requisicaoRepository = requisicaoRepository;
+            this.pacienteRepository = pacienteRepository;
+            this.medicamentoRepository = medicamentoRepository;
+            this.funcionarioRepository = funcionarioRepository;
+            this.telaPaciente = telaPaciente;
+            this.telaMedicamento = telaMedicamento;
+            this.telaFuncionario = telaFuncionario;
+        }
 
         public void MenuRequisicao(string opcao)
         {

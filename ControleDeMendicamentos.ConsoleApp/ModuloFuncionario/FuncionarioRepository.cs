@@ -10,6 +10,10 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
 {
     internal class FuncionarioRepository : RepositoryBase
     {
+        public FuncionarioRepository(List<EntidadeBase> listaDeEntidades)
+        {
+            this.listaEntidades = listaDeEntidades;
+        }
         public override Funcionario Busca(int id)
         {
             return (Funcionario)base.Busca(id);

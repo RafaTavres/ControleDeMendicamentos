@@ -10,7 +10,12 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloPaciente
     internal class TelaPaciente : TelaBase
     {
 
-        public PacienteRepository pacienteRepository = null;
+        public PacienteRepository pacienteRepository;
+
+        public TelaPaciente(PacienteRepository pacienteRepository)
+        {
+            this.pacienteRepository = pacienteRepository;
+        }
 
         public void MenuPaciente(string opcao)
         {

@@ -11,6 +11,11 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloPaciente
 {
     internal class PacienteRepository : RepositoryBase
     {
+        public PacienteRepository(List<EntidadeBase> listaDeEntidades)
+        {
+            this.listaEntidades = listaDeEntidades;
+        }
+
         public override Paciente Busca(int id)
         {
             return (Paciente)base.Busca(id);

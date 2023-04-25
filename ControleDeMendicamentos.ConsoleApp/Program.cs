@@ -13,43 +13,23 @@ namespace ControleDeMendicamentos.ConsoleApp
         {
             string opcao = "";
             #region DeclaraçãoEConecção
-            FuncionarioRepository repositorioDeFuncionario = new FuncionarioRepository();
-            TelaFuncionarios telaFuncionarios = new TelaFuncionarios();
-            telaFuncionarios.funcionarioRepository = repositorioDeFuncionario;
+            FuncionarioRepository repositorioDeFuncionario = new FuncionarioRepository(new List<EntidadeBase>());
+            TelaFuncionarios telaFuncionarios = new TelaFuncionarios(repositorioDeFuncionario);
 
-            PacienteRepository repositorioDePaciente = new PacienteRepository();
-            TelaPaciente telaPaciente = new TelaPaciente();
-            telaPaciente.pacienteRepository = repositorioDePaciente;
+            PacienteRepository repositorioDePaciente = new PacienteRepository(new List<EntidadeBase>());
+            TelaPaciente telaPaciente = new TelaPaciente(repositorioDePaciente);
 
-            MedicamentoRepository repositorioDeMedicamento= new MedicamentoRepository();
-            TelaMedicamento telaMedicamento = new TelaMedicamento();
-            telaMedicamento.medicamentoRepository = repositorioDeMedicamento;
+            MedicamentoRepository repositorioDeMedicamento= new MedicamentoRepository(new List<EntidadeBase>());
+            TelaMedicamento telaMedicamento = new TelaMedicamento(repositorioDeMedicamento);
 
-            FornecedorRepository repositorioDeFornecedor = new FornecedorRepository();
-            TelaFornecedor telaFornecedor = new TelaFornecedor();
-            telaFornecedor.fornecedorRepository = repositorioDeFornecedor;
-            telaFornecedor.medicamentoRepository = repositorioDeMedicamento;
-            telaFornecedor.telaMedicamento = telaMedicamento;
+            FornecedorRepository repositorioDeFornecedor = new FornecedorRepository(new List<EntidadeBase>());
+            TelaFornecedor telaFornecedor = new TelaFornecedor(repositorioDeFornecedor, repositorioDeMedicamento, telaMedicamento);
 
-            AquisicaoRepository repositorioDeAquisicao = new AquisicaoRepository();
-            TelaAquisicao telaAquisicao = new TelaAquisicao();
-            telaAquisicao.aquisicaoRepository = repositorioDeAquisicao;
-            telaAquisicao.fornecedorRepository = repositorioDeFornecedor;
-            telaAquisicao.funcionarioRepository = repositorioDeFuncionario;
-            telaAquisicao.medicamentoRepository = repositorioDeMedicamento;
-            telaAquisicao.telaFornecedor = telaFornecedor;
-            telaAquisicao.telaFuncionario = telaFuncionarios;
-            telaAquisicao.telaMedicamento = telaMedicamento;
+            AquisicaoRepository repositorioDeAquisicao = new AquisicaoRepository(new List<EntidadeBase>());
+            TelaAquisicao telaAquisicao = new TelaAquisicao(repositorioDeAquisicao, repositorioDeFornecedor, repositorioDeMedicamento, repositorioDeFuncionario, telaFornecedor, telaMedicamento, telaFuncionarios);
 
-            RequisicaoRepository repositorioDeRequisicao = new RequisicaoRepository();
-            TelaRequisicao telaRequisicao = new TelaRequisicao();
-            telaRequisicao.requisicaoRepository = repositorioDeRequisicao;
-            telaRequisicao.pacienteRepository = repositorioDePaciente;
-            telaRequisicao.funcionarioRepository = repositorioDeFuncionario;
-            telaRequisicao.medicamentoRepository = repositorioDeMedicamento;
-            telaRequisicao.telaPaciente = telaPaciente;
-            telaRequisicao.telaFuncionario = telaFuncionarios;
-            telaRequisicao.telaMedicamento = telaMedicamento;
+            RequisicaoRepository repositorioDeRequisicao = new RequisicaoRepository(new List<EntidadeBase>());
+            TelaRequisicao telaRequisicao = new TelaRequisicao(repositorioDeRequisicao, repositorioDePaciente, repositorioDeMedicamento, repositorioDeFuncionario, telaPaciente, telaMedicamento, telaFuncionarios);
 
                 #endregion
 

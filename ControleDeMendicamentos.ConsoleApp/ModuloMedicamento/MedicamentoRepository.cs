@@ -12,6 +12,12 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
     {
 
         public List<Medicamento> listaDeMedicamentos = new List<Medicamento>();
+
+        public MedicamentoRepository(List<EntidadeBase> listaDeEntidades)
+        {
+            this.listaEntidades = listaDeEntidades;
+        }
+
         public override Medicamento Busca(int id)
         {
             return (Medicamento)base.Busca(id);

@@ -9,7 +9,12 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
 {
     internal class TelaFuncionarios : TelaBase
     {
-        public FuncionarioRepository funcionarioRepository = null;
+        public FuncionarioRepository funcionarioRepository;
+
+        public TelaFuncionarios(FuncionarioRepository funcionarioRepository)
+        {
+            this.funcionarioRepository = funcionarioRepository;
+        }
 
         public void MenuFuncionario(string opcao)
         {
