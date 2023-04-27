@@ -2,6 +2,7 @@
 using ControleDeMendicamentos.ConsoleApp.ModuleFornecedor;
 using ControleDeMendicamentos.ConsoleApp.ModuloFuncionario;
 using ControleDeMendicamentos.ConsoleApp.ModuloMedicamento;
+using ControleDeMendicamentos.ConsoleApp.ModuloRequisicao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -126,6 +127,34 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
                 MostraTodosAquisicao();
                 DeletaAquisicao();
             }
+        }
+        public override void AtualizarEntidade(RepositoryBase repositorio)
+        {
+            Console.WriteLine();
+
+            Console.WriteLine("Id para Editar: ");
+            int idParaEditar = Convert.ToInt32(Console.ReadLine());
+
+            Aquisicao aquisicao = aquisicaoRepository.Busca(idParaEditar);
+
+            Aquisicao aquisicaoAtualizada = (Aquisicao)PegaDadosEntidade();
+
+            aquisicao.DesfazerRegistroEntrada();
+
+            repositorio.Atualizar(idParaEditar, aquisicaoAtualizada);
+        }
+        public override void DeletaEntidade(RepositoryBase repositorio)
+        {
+            Console.WriteLine();
+
+            Console.WriteLine("Id para Deletar: ");
+            int idParaDeletar = Convert.ToInt32(Console.ReadLine());
+
+            Aquisicao aquisicao = aquisicaoRepository.Busca(idParaDeletar);
+
+            aquisicao.DesfazerRegistroEntrada();
+
+            repositorio.Deletar(idParaDeletar);
         }
     }
 }

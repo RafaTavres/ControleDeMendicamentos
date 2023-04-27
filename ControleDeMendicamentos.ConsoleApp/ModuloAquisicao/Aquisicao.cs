@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ControleDeMendicamentos.ConsoleApp.ClassesPais;
 using ControleDeMendicamentos.ConsoleApp.ModuleFornecedor;
 using ControleDeMendicamentos.ConsoleApp.ModuloFuncionario;
 using ControleDeMendicamentos.ConsoleApp.ModuloMedicamento;
+using ControleDeMendicamentos.ConsoleApp.ModuloRequisicao;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
 {
@@ -25,6 +27,10 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
 
             quantidadeAdicionada = aquisicao.quantidadeAdicionada;
             dataDaRetirada = aquisicao.dataDaRetirada;
+        }
+        public void DesfazerRegistroEntrada()
+        {
+            medicamento.RemoverQuantidade(quantidadeAdicionada);
         }
     }
 }

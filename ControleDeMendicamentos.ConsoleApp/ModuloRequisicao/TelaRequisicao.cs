@@ -99,6 +99,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
         }
         public void AtualizarRequisicao()
         {
+            
             AtualizarEntidade(requisicaoRepository);
         }
         public void DeletaRequisicao()
@@ -132,9 +133,34 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
             }
         }
 
+        public override void AtualizarEntidade(RepositoryBase repositorio)
+        {
+            Console.WriteLine();        
+            
+            Console.WriteLine("Id para Editar: ");
+            int idParaEditar = Convert.ToInt32(Console.ReadLine());
 
+            Requisicao requisicao = requisicaoRepository.Busca(idParaEditar);
 
+            Requisicao requisicaoAtualizada = (Requisicao)PegaDadosEntidade();
 
+            requisicao.DesfazerRegistroSaida();
+
+            repositorio.Atualizar(idParaEditar, requisicaoAtualizada);
+        }
+        public override void DeletaEntidade(RepositoryBase repositorio)
+        {
+            Console.WriteLine();
+
+            Console.WriteLine("Id para Deletar: ");
+            int idParaDeletar = Convert.ToInt32(Console.ReadLine());
+
+            Requisicao requisicao = requisicaoRepository.Busca(idParaDeletar);
+
+            requisicao.DesfazerRegistroSaida();
+
+            repositorio.Deletar(idParaDeletar);
+        }
     }
 
 }

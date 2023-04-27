@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleDeMendicamentos.ConsoleApp.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
 {
-    internal abstract class TelaBase
+    internal abstract class TelaBase: IMostraEntidades
     {
         public void ApresentaMensagem(string mensagem, ConsoleColor cor)
         {
@@ -80,10 +81,9 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
                 }
             }
         }
-
         public abstract void EscreveTodasAsEntidades(EntidadeBase a);
 
-        public void AtualizarEntidade(RepositoryBase repositorio)
+        public virtual void AtualizarEntidade(RepositoryBase repositorio)
         {
             Console.WriteLine();
             Console.WriteLine("Id para Editar: ");
@@ -92,12 +92,13 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
             repositorio.Atualizar(idParaEditar, entidade);
         }
 
-        public void DeletaEntidade(RepositoryBase repositorio)
+        public virtual void DeletaEntidade(RepositoryBase repositorio)
         {
             Console.WriteLine();
             Console.WriteLine("Id para Deletar: ");
             int idParaDeletar = Convert.ToInt32(Console.ReadLine());
             repositorio.Deletar(idParaDeletar);
         }
+
     }
 }

@@ -23,9 +23,12 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
             paciente = requisicao.paciente;
             medicamento = requisicao.medicamento;
             funcionario = requisicao.funcionario;
-            quantidadeRetirada = requisicao.quantidadeRetirada;
             dataDaRetirada = requisicao.dataDaRetirada;
-
         }
+        public void DesfazerRegistroSaida()
+        {
+            medicamento.RemoverQuantidade(quantidadeRetirada);
+        }
+
     }
 }

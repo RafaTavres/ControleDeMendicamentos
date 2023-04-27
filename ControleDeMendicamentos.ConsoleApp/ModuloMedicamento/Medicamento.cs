@@ -25,5 +25,14 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
             bula = medicamento.bula;
 
         }
+
+        public void RemoverQuantidade(int qtd)
+        {
+            this.quantidadeDisponivel -= qtd;
+        }
+        public void AumentarQuantidade(int qtd)
+        {
+            this.quantidadeDisponivel += qtd;
+        }
     }
 }

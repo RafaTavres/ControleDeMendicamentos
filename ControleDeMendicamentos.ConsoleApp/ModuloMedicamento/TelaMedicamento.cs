@@ -1,4 +1,5 @@
 ﻿using ControleDeMendicamentos.ConsoleApp.ClassesPais;
+using ControleDeMendicamentos.ConsoleApp.Interfaces;
 using ControleDeMendicamentos.ConsoleApp.ModuleFornecedor;
 using System;
 using System.Collections;
