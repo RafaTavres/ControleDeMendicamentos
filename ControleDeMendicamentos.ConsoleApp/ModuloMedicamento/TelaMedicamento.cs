@@ -1,12 +1,14 @@
 ﻿using ControleDeMendicamentos.ConsoleApp.ClassesPais;
-using ControleDeMendicamentos.ConsoleApp.Interfaces;
 using ControleDeMendicamentos.ConsoleApp.ModuleFornecedor;
+using ControleDeMendicamentos.ConsoleApp.ModuloAquisicao;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
@@ -144,6 +146,25 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
             while (opcao.ToUpper() != "S");
         }
 
+        public override bool VerificaObjetosVazio(EntidadeBase entidade)
+        {
+            Medicamento aq = (Medicamento)entidade;
+
+            if (aq == null)
+            {
+                return true;
+            }
+            if (string.IsNullOrEmpty(aq.nome) || string.IsNullOrWhiteSpace(aq.nome))
+            {
+                return true;
+            }
+            if (string.IsNullOrEmpty(aq.descricao) || string.IsNullOrWhiteSpace(aq.descricao))
+            {
+                return true;
+            }
+            else
+                return false;
+        }
     }
 
 }

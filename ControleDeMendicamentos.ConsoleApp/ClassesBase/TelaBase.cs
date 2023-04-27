@@ -17,15 +17,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
             Console.ResetColor();
             Console.ReadKey();
         }
-        public bool VerificaObjetosVazio(Object objeto)
-        {
-            if (objeto == null)
-            {
-                return true;
-            }
-            else
-                return false;
-        }
+        public abstract bool VerificaObjetosVazio(EntidadeBase entidade);
         public bool VerificaListasValidas(string tipo, RepositoryBase repository)
         {
             if (repository.RetornarTodos().Count == 0)

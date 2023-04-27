@@ -1,4 +1,5 @@
 ﻿using ControleDeMendicamentos.ConsoleApp.ClassesPais;
+using ControleDeMendicamentos.ConsoleApp.ModuloAquisicao;
 using ControleDeMendicamentos.ConsoleApp.ModuloMedicamento;
 using System;
 using System.Collections.Generic;
@@ -136,6 +137,25 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
 
             }
             while (opcao.ToUpper() != "S");
+        }
+
+        public override bool VerificaObjetosVazio(EntidadeBase entidade)
+        {
+            Fornecedor aq = (Fornecedor)entidade;
+            if (aq == null)
+            {
+                return true;
+            }
+            if (string.IsNullOrEmpty(aq.nome) || string.IsNullOrWhiteSpace(aq.nome))
+            {
+                return true;
+            }
+            if (string.IsNullOrEmpty(aq.telefone) || string.IsNullOrWhiteSpace(aq.telefone))
+            {
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

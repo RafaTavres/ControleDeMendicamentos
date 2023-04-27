@@ -1,4 +1,5 @@
 ﻿using ControleDeMendicamentos.ConsoleApp.ClassesPais;
+using ControleDeMendicamentos.ConsoleApp.ModuloAquisicao;
 using ControleDeMendicamentos.ConsoleApp.ModuloFuncionario;
 using ControleDeMendicamentos.ConsoleApp.ModuloMedicamento;
 using ControleDeMendicamentos.ConsoleApp.ModuloPaciente;
@@ -73,14 +74,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
 
             Console.Clear();
             Console.WriteLine("Quantidade Retirada");
-            requisicao.quantidadeRetirada = Convert.ToInt32(Console.ReadLine());
-            if (requisicao.medicamento.quantidadeDisponivel < requisicao.quantidadeRetirada)
-            {
-                ApresentaMensagem("Quantidade indisponível", ConsoleColor.DarkYellow);
-                return null;
-            }
-            else
-                requisicao.medicamento.quantidadeDisponivel -= requisicao.quantidadeRetirada;
+            requisicao.quantidadeRetirada = Convert.ToInt32(Console.ReadLine());                         
 
             Console.WriteLine("Data da Retirada");
             requisicao.dataDaRetirada = Convert.ToDateTime(Console.ReadLine());
@@ -160,6 +154,30 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
             requisicao.DesfazerRegistroSaida();
 
             repositorio.Deletar(idParaDeletar);
+        }
+
+        public override bool VerificaObjetosVazio(EntidadeBase entidade)
+        {
+            Requisicao aq = (Requisicao)entidade;
+            if (aq == null)
+            {
+                return true;
+            }
+            if (string.IsNullOrEmpty(aq.quantidadeRetirada.ToString()) || string.IsNullOrWhiteSpace(aq.quantidadeRetirada.ToString()))
+            {
+                return true;
+            }
+            if (string.IsNullOrEmpty(aq.funcionario.ToString()) || string.IsNullOrWhiteSpace(aq.funcionario.ToString()))
+            {
+                return true;
+            }
+            if (aq.medicamento.quantidadeDisponivel < aq.quantidadeRetirada)
+            {
+                return true;
+            }
+            else
+                aq.medicamento.quantidadeDisponivel -= aq.quantidadeRetirada;
+                return false;
         }
     }
 
