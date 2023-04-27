@@ -1,4 +1,4 @@
-﻿using ControleDeMendicamentos.ConsoleApp.Interfaces;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
 {
-    internal abstract class TelaBase: IMostraEntidades
+    internal abstract class TelaBase
     {
         public void ApresentaMensagem(string mensagem, ConsoleColor cor)
         {
