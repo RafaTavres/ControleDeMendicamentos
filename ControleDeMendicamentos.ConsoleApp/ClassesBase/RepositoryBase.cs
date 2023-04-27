@@ -10,7 +10,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
     {
         protected int id = 1;
         protected List<EntidadeBase> listaEntidades = new List<EntidadeBase>();
-        public abstract bool VerificaObjetosVazio(EntidadeBase entidade);
+        public abstract bool VerificaObjetosComErro(EntidadeBase entidade);
 
         private int IncrementaId()
         {

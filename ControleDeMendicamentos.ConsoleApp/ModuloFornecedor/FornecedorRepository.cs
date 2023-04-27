@@ -17,7 +17,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
         {
             return (Fornecedor)base.Busca(id);
         }
-        public override bool VerificaObjetosVazio(EntidadeBase entidade)
+        public override bool VerificaObjetosComErro(EntidadeBase entidade)
         {
             Fornecedor aq = (Fornecedor)entidade;
             if (aq == null)

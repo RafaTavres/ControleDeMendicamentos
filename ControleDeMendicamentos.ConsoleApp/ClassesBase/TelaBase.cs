@@ -47,7 +47,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
 
         public void Adiciona(string nomeDaEntidade,EntidadeBase novaEntidade,RepositoryBase repositorio)
         {
-            if (repositorio.VerificaObjetosVazio(novaEntidade) == true)
+            if (repositorio.VerificaObjetosComErro(novaEntidade) == true)
             {
                 ApresentaMensagem($"{nomeDaEntidade} Invalido(a)", ConsoleColor.Red);
                 return;

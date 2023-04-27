@@ -32,5 +32,9 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
         {
             medicamento.RemoverQuantidade(quantidadeAdicionada);
         }
+        public void AumentarQuantidadeMedicamento()
+        {
+            medicamento.AumentarQuantidade(quantidadeAdicionada);
+        }
     }
 }

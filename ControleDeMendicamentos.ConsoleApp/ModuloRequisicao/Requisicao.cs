@@ -27,6 +27,10 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
         }
         public void DesfazerRegistroSaida()
         {
+            medicamento.AumentarQuantidade(quantidadeRetirada);
+        }
+        public void DiminuirQuantidadeMedicamento()
+        {
             medicamento.RemoverQuantidade(quantidadeRetirada);
         }
 

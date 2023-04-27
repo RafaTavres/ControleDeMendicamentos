@@ -20,7 +20,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloPaciente
         {
             return (Paciente)base.Busca(id);
         }
-        public override bool VerificaObjetosVazio(EntidadeBase entidade)
+        public override bool VerificaObjetosComErro(EntidadeBase entidade)
         {
             Paciente aq = (Paciente)entidade;
             if (aq == null)

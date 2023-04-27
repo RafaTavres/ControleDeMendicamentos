@@ -65,8 +65,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
             aquisicao.medicamento = medicamentoRepository.Busca(idBusca);
             Console.WriteLine();
             Console.WriteLine("Quantidade do Pedido");
-            aquisicao.quantidadeAdicionada = Convert.ToInt32(Console.ReadLine());
-            aquisicao.medicamento.quantidadeDisponivel += aquisicao.quantidadeAdicionada;
+            aquisicao.quantidadeAdicionada = Convert.ToInt32(Console.ReadLine());            
 
             Console.Clear();
             if (VerificaListasValidas("funcionario", funcionarioRepository) == false)

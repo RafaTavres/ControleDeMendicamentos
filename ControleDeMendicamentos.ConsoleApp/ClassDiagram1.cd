@@ -3,7 +3,7 @@
   <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloAquisicao.Aquisicao" Collapsed="true">
     <Position X="7.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAAgCIAACgA=</HashCode>
+      <HashCode>AAAAAAAAAAACAAAEAAAAAAAAAAAAAAAAAAAgCoAACgA=</HashCode>
       <FileName>ModuloAquisicao\Aquisicao.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -44,13 +44,13 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAEAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAhCAAACAg=</HashCode>
+      <HashCode>AAAAEAAAAAAAAAAEAAAQAAAAAAAAAAAAAAAhCAAACAg=</HashCode>
       <FileName>ModuloRequisicao\Requisicao.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="medicamento" />
-      <Property Name="funcionario" />
       <Property Name="paciente" />
+      <Property Name="funcionario" />
     </ShowAsAssociation>
   </Class>
   <Class Name="ControleDeMendicamentos.ConsoleApp.ModuloMedicamento.Medicamento" Collapsed="true">

@@ -32,7 +32,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
             List<Medicamento> objetoOrdenados = listaDeMedicamentos.OrderByDescending(x => x.quantidadeDeRetiradas).ToList();
             return objetoOrdenados;
         }
-        public override bool VerificaObjetosVazio(EntidadeBase entidade)
+        public override bool VerificaObjetosComErro(EntidadeBase entidade)
         {
             Medicamento aq = (Medicamento)entidade;
 

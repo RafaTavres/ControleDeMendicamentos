@@ -1,5 +1,6 @@
 ﻿using ControleDeMendicamentos.ConsoleApp.ClassesPais;
 using ControleDeMendicamentos.ConsoleApp.ModuleFornecedor;
+using ControleDeMendicamentos.ConsoleApp.ModuloAquisicao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,27 +20,30 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
         {
             return (Requisicao)base.Busca(id);
         }
-        public override bool VerificaObjetosVazio(EntidadeBase entidade)
+        public override bool VerificaObjetosComErro(EntidadeBase entidade)
         {
             Requisicao aq = (Requisicao)entidade;
             if (aq == null)
             {
                 return true;
-            }
+            }else
             if (string.IsNullOrEmpty(aq.quantidadeRetirada.ToString()) || string.IsNullOrWhiteSpace(aq.quantidadeRetirada.ToString()))
             {
                 return true;
-            }
+            }else
             if (string.IsNullOrEmpty(aq.funcionario.ToString()) || string.IsNullOrWhiteSpace(aq.funcionario.ToString()))
             {
                 return true;
-            }
+            }else
             if (aq.medicamento.quantidadeDisponivel < aq.quantidadeRetirada)
             {
                 return true;
             }
             else
-                aq.medicamento.quantidadeDisponivel -= aq.quantidadeRetirada;
+            {
+                aq.DiminuirQuantidadeMedicamento();
+                aq.medicamento.quantidadeDeRetiradas++;
+            }           
             return false;
         }
     }

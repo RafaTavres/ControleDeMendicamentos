@@ -18,7 +18,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
         {
             return (Funcionario)base.Busca(id);
         }
-        public override bool VerificaObjetosVazio(EntidadeBase entidade)
+        public override bool VerificaObjetosComErro(EntidadeBase entidade)
         {
             Funcionario aq = (Funcionario)entidade;
             if (aq == null)

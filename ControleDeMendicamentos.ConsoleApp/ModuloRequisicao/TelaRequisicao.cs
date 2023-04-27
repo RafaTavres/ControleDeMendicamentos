@@ -39,6 +39,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
         public void AdicionarRequisicao()
         {
             Requisicao requisicao = (Requisicao)PegaDadosEntidade();
+            
             Adiciona("Requisição", requisicao, requisicaoRepository);
         }
         public override EntidadeBase PegaDadosEntidade()
@@ -74,11 +75,10 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
 
             Console.Clear();
             Console.WriteLine("Quantidade Retirada");
-            requisicao.quantidadeRetirada = Convert.ToInt32(Console.ReadLine());                         
-
+            requisicao.quantidadeRetirada = Convert.ToInt32(Console.ReadLine());
+            
             Console.WriteLine("Data da Retirada");
             requisicao.dataDaRetirada = Convert.ToDateTime(Console.ReadLine());
-            requisicao.medicamento.quantidadeDeRetiradas++;
 
             return requisicao;
         }

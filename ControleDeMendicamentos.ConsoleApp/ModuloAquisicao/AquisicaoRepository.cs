@@ -1,5 +1,6 @@
 ﻿using ControleDeMendicamentos.ConsoleApp.ClassesPais;
 using ControleDeMendicamentos.ConsoleApp.ModuleFornecedor;
+using ControleDeMendicamentos.ConsoleApp.ModuloRequisicao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
         {
             return (Aquisicao)base.Busca(id);
         }
-        public override bool VerificaObjetosVazio(EntidadeBase entidade)
+        public override bool VerificaObjetosComErro(EntidadeBase entidade)
         {
             Aquisicao aq = (Aquisicao)entidade;
             if (aq == null)
@@ -34,6 +35,9 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
                 return true;
             }
             else
+            {
+                aq.AumentarQuantidadeMedicamento();
+            }
                 return false;
         }
     }
