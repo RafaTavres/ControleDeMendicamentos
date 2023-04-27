@@ -84,23 +84,6 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloPaciente
             }
         }
 
-        public override bool VerificaObjetosVazio(EntidadeBase entidade)
-        {
-            Paciente aq = (Paciente)entidade;
-            if (aq == null)
-            {
-                return true;
-            }
-            if (string.IsNullOrEmpty(aq.nome) || string.IsNullOrWhiteSpace(aq.nome))
-            {
-                return true;
-            }
-            if (string.IsNullOrEmpty(aq.numeroSUS) || string.IsNullOrWhiteSpace(aq.numeroSUS))
-            {
-                return true;
-            }
-            else
-                return false;
-        }
+      
     }
 }

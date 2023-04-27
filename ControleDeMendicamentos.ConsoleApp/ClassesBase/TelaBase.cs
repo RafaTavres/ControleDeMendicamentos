@@ -17,7 +17,6 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
             Console.ResetColor();
             Console.ReadKey();
         }
-        public abstract bool VerificaObjetosVazio(EntidadeBase entidade);
         public bool VerificaListasValidas(string tipo, RepositoryBase repository)
         {
             if (repository.RetornarTodos().Count == 0)
@@ -48,7 +47,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
 
         public void Adiciona(string nomeDaEntidade,EntidadeBase novaEntidade,RepositoryBase repositorio)
         {
-            if (VerificaObjetosVazio(novaEntidade) == true)
+            if (repositorio.VerificaObjetosVazio(novaEntidade) == true)
             {
                 ApresentaMensagem($"{nomeDaEntidade} Invalido(a)", ConsoleColor.Red);
                 return;
@@ -77,19 +76,34 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
 
         public virtual void AtualizarEntidade(RepositoryBase repositorio)
         {
-            Console.WriteLine();
-            Console.WriteLine("Id para Editar: ");
-            int idParaEditar = Convert.ToInt32(Console.ReadLine());
+
+            int idParaEditar = BuscaiD(repositorio);
+            if (0 == idParaEditar)
+                return;
             EntidadeBase entidade = PegaDadosEntidade();
             repositorio.Atualizar(idParaEditar, entidade);
         }
 
         public virtual void DeletaEntidade(RepositoryBase repositorio)
         {
+            
+            int idParaEditar = BuscaiD(repositorio);
+            if (0 == idParaEditar)
+               return;
+
+            int idParaDeletar = Convert.ToInt32(Console.ReadLine());
+            repositorio.Deletar(idParaDeletar);
+        }
+        public int BuscaiD(RepositoryBase repositorio)
+        {
             Console.WriteLine();
             Console.WriteLine("Id para Deletar: ");
             int idParaDeletar = Convert.ToInt32(Console.ReadLine());
-            repositorio.Deletar(idParaDeletar);
+            repositorio.Busca(idParaDeletar);
+            if (repositorio.Busca(idParaDeletar) == null)
+                return 0;
+            else
+                return idParaDeletar;
         }
 
     }

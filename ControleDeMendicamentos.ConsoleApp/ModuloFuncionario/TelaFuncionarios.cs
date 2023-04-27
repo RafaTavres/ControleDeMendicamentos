@@ -81,23 +81,6 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
             }
         }
 
-        public override bool VerificaObjetosVazio(EntidadeBase entidade)
-        {
-            Funcionario aq = (Funcionario)entidade;
-            if (aq == null)
-            {
-                return true;
-            }
-            if (string.IsNullOrEmpty(aq.CPF) || string.IsNullOrWhiteSpace(aq.CPF))
-            {
-                return true;
-            }
-            if (string.IsNullOrEmpty(aq.nome) || string.IsNullOrWhiteSpace(aq.nome))
-            {
-                return true;
-            }
-            else
-                return false;
-        }
+     
     }
 }

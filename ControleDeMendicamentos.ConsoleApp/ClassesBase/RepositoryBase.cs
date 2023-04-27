@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
 {
-    internal class RepositoryBase
+    internal abstract class RepositoryBase
     {
         protected int id = 1;
         protected List<EntidadeBase> listaEntidades = new List<EntidadeBase>();
+        public abstract bool VerificaObjetosVazio(EntidadeBase entidade);
+
         private int IncrementaId()
         {
             return id++;
@@ -47,8 +49,8 @@ namespace ControleDeMendicamentos.ConsoleApp.ClassesPais
                 if (Busca(id).Equals(a))
                 {
                     listaEntidades.Remove(a);
-                    break;
-                }
+                    return;
+                }                
             }
         }
         public List<EntidadeBase> RetornarTodos()

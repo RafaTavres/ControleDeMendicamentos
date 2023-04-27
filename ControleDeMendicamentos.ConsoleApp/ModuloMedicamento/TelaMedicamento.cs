@@ -146,25 +146,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
             while (opcao.ToUpper() != "S");
         }
 
-        public override bool VerificaObjetosVazio(EntidadeBase entidade)
-        {
-            Medicamento aq = (Medicamento)entidade;
-
-            if (aq == null)
-            {
-                return true;
-            }
-            if (string.IsNullOrEmpty(aq.nome) || string.IsNullOrWhiteSpace(aq.nome))
-            {
-                return true;
-            }
-            if (string.IsNullOrEmpty(aq.descricao) || string.IsNullOrWhiteSpace(aq.descricao))
-            {
-                return true;
-            }
-            else
-                return false;
-        }
+      
     }
 
 }

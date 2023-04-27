@@ -156,24 +156,5 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
 
             repositorio.Deletar(idParaDeletar);
         }
-
-        public override bool VerificaObjetosVazio(EntidadeBase entidade)
-        {
-            Aquisicao aq = (Aquisicao)entidade;
-            if (aq == null)
-            {
-                return true;
-            }
-            if (string.IsNullOrEmpty(aq.quantidadeAdicionada.ToString()) || string.IsNullOrWhiteSpace(aq.quantidadeAdicionada.ToString()))
-            {
-                return true;
-            }
-            if (string.IsNullOrEmpty(aq.funcionario.ToString()) || string.IsNullOrWhiteSpace(aq.funcionario.ToString()))
-            {
-                return true;
-            }
-            else
-                return false;
-        }
     }
 }
