@@ -97,7 +97,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
             {
                 Console.WriteLine("Data da Retirada");
                 requisicao.dataDaRetirada = Convert.ToDateTime(Console.ReadLine());
-                PegaDadosEntidade();
+
             }
             catch (FormatException)
             {

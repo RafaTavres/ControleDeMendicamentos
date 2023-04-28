@@ -39,11 +39,11 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
             if (aq == null)
             {
                 return true;
-            }
+            }else
             if (string.IsNullOrEmpty(aq.nome) || string.IsNullOrWhiteSpace(aq.nome))
             {
                 return true;
-            }
+            }else
             if (string.IsNullOrEmpty(aq.descricao) || string.IsNullOrWhiteSpace(aq.descricao))
             {
                 return true;

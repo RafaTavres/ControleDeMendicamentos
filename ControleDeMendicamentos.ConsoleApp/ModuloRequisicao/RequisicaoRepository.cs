@@ -56,7 +56,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
             {
                 aq.DiminuirQuantidadeMedicamento();
                 aq.medicamento.quantidadeDeRetiradas++;
-            }           
+            }
             return false;
         }
     }
