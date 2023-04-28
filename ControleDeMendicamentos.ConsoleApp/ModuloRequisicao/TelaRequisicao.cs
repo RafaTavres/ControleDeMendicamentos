@@ -47,38 +47,64 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
             int idBusca = 0;
             Requisicao requisicao = new Requisicao();
 
-            if (VerificaListasValidas("Paciente", pacienteRepository) == false)
-                return null;
-            else
-                telaPaciente.MostraTodosPaciente();
-            Console.WriteLine("Id do Paciente");
-            idBusca = Convert.ToInt32(Console.ReadLine());
-            requisicao.paciente = pacienteRepository.Busca(idBusca);
+            try
+            {
+                if (VerificaListasValidas("Paciente", pacienteRepository) == false)
+                    return null;
+                else
+                    telaPaciente.MostraTodosPaciente();
+                Console.WriteLine("Id do Paciente");
+                idBusca = Convert.ToInt32(Console.ReadLine());
+                requisicao.paciente = pacienteRepository.Busca(idBusca);
 
-            Console.Clear();
-            if (VerificaListasValidas("Medicamento", medicamentoRepository) == false)
-                return null;
-            else
-                telaMedicamento.MostraTodosMedicamento();
-            Console.WriteLine("Id do Medicamento");
-            idBusca = Convert.ToInt32(Console.ReadLine());
-            requisicao.medicamento = medicamentoRepository.Busca(idBusca);
+                Console.Clear();
+                if (VerificaListasValidas("Medicamento", medicamentoRepository) == false)
+                    return null;
+                else
+                    telaMedicamento.MostraTodosMedicamento();
+                Console.WriteLine("Id do Medicamento");
+                idBusca = Convert.ToInt32(Console.ReadLine());
+                requisicao.medicamento = medicamentoRepository.Busca(idBusca);
 
+                Console.Clear();
+                if (VerificaListasValidas("Funcionario", funcionarioRepository) == false)
+                    return null;
+                else
+                    telaFuncionario.MostraTodosFuncionarios();
+                Console.WriteLine("Id do Funcionario");
+                idBusca = Convert.ToInt32(Console.ReadLine());
+                requisicao.funcionario = funcionarioRepository.Busca(idBusca);
+            }
+            catch (FormatException)
+            {
+                ApresentaMensagem("Um ID válido deve ser informado...",ConsoleColor.DarkYellow);
+                PegaDadosEntidade();
+            }
             Console.Clear();
-            if (VerificaListasValidas("Funcionario", funcionarioRepository) == false)
-                return null;
-            else
-                telaFuncionario.MostraTodosFuncionarios();
-            Console.WriteLine("Id do Funcionario");
-            idBusca = Convert.ToInt32(Console.ReadLine());
-            requisicao.funcionario = funcionarioRepository.Busca(idBusca);
 
-            Console.Clear();
-            Console.WriteLine("Quantidade Retirada");
-            requisicao.quantidadeRetirada = Convert.ToInt32(Console.ReadLine());
-            
-            Console.WriteLine("Data da Retirada");
-            requisicao.dataDaRetirada = Convert.ToDateTime(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("Quantidade Retirada");
+                requisicao.quantidadeRetirada = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                ApresentaMensagem("Quantidade Retirada deve ser válida...", ConsoleColor.DarkYellow);
+                PegaDadosEntidade();
+            }
+
+            try
+            {
+                Console.WriteLine("Data da Retirada");
+                requisicao.dataDaRetirada = Convert.ToDateTime(Console.ReadLine());
+                PegaDadosEntidade();
+            }
+            catch (FormatException)
+            {
+                ApresentaMensagem("Deve ser informada uma data válida... exemplo: '12/12/12'", ConsoleColor.DarkYellow);
+                PegaDadosEntidade();
+            }
+
 
             return requisicao;
         }

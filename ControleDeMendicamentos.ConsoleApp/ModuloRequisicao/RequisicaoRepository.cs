@@ -27,6 +27,19 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloRequisicao
             {
                 return true;
             }else
+            if (aq.medicamento == null)
+            {
+                return true;
+            }else
+            if (aq.funcionario == null)
+            {
+                return true;
+            }else
+            if (aq.paciente == null)
+            {
+                return true;
+            }
+            else
             if (string.IsNullOrEmpty(aq.quantidadeRetirada.ToString()) || string.IsNullOrWhiteSpace(aq.quantidadeRetirada.ToString()))
             {
                 return true;

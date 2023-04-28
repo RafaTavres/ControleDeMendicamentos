@@ -46,42 +46,69 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
         {
             int idBusca = 0;
             Aquisicao aquisicao = new Aquisicao();
+            try
+            {
+                if (VerificaListasValidas("fornecedor", fornecedorRepository) == false)
+                    return null;
+                else
+                    telaFornecedor.MostraTodosFornecedor();
+                Console.WriteLine("Id do Fornecedor");
+                idBusca = Convert.ToInt32(Console.ReadLine());
+                aquisicao.fornecedor = fornecedorRepository.Busca(idBusca);
+                Console.WriteLine("Deve ser informado um Id Válido");
 
-            if (VerificaListasValidas("fornecedor", fornecedorRepository) == false)
-                return null;
-            else
-                telaFornecedor.MostraTodosFornecedor();
-            Console.WriteLine("Id do Fornecedor");
-            idBusca = Convert.ToInt32(Console.ReadLine());
-            aquisicao.fornecedor = fornecedorRepository.Busca(idBusca);
+
+                Console.Clear();
+
+                if (VerificaListasValidas("medicamento", medicamentoRepository) == false)
+                    return null;
+                else
+                    telaMedicamento.MostraTodosMedicamento();
+                Console.WriteLine("Id do Medicamento");
+                idBusca = Convert.ToInt32(Console.ReadLine());
+                aquisicao.medicamento = medicamentoRepository.Busca(idBusca);
+
+                Console.Clear();
+                if (VerificaListasValidas("funcionario", funcionarioRepository) == false)
+                    return null;
+                else
+                    telaFuncionario.MostraTodosFuncionarios();
+                Console.WriteLine("Id do Funcionario");
+                idBusca = Convert.ToInt32(Console.ReadLine());
+                aquisicao.funcionario = funcionarioRepository.Busca(idBusca);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Deve ser Informado um ID válido...");
+                PegaDadosEntidade();
+            }
+
+            try
+            {
+                Console.WriteLine();
+                Console.WriteLine("Quantidade do Pedido");
+                aquisicao.quantidadeAdicionada = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                ApresentaMensagem("Deve ser Informado uma Quantidade Válida...", ConsoleColor.DarkYellow);
+                PegaDadosEntidade();
+            }
 
             Console.Clear();
-            if (VerificaListasValidas("medicamento", medicamentoRepository) == false)
-                return null;
-            else
-                telaMedicamento.MostraTodosMedicamento();
-            Console.WriteLine("Id do Medicamento");
-            idBusca = Convert.ToInt32(Console.ReadLine());
-            aquisicao.medicamento = medicamentoRepository.Busca(idBusca);
-            Console.WriteLine();
-            Console.WriteLine("Quantidade do Pedido");
-            aquisicao.quantidadeAdicionada = Convert.ToInt32(Console.ReadLine());            
 
-            Console.Clear();
-            if (VerificaListasValidas("funcionario", funcionarioRepository) == false)
-                return null;
-            else
-                telaFuncionario.MostraTodosFuncionarios();
-            Console.WriteLine("Id do Funcionario");
-            idBusca = Convert.ToInt32(Console.ReadLine());
-            aquisicao.funcionario = funcionarioRepository.Busca(idBusca);
-
-            Console.Clear();
-
-            Console.WriteLine("Data da Retirada");
-            aquisicao.dataDaRetirada = Convert.ToDateTime(Console.ReadLine());
-
-            return aquisicao;
+            try
+            {
+                Console.WriteLine("Data da Retirada");
+                aquisicao.dataDaRetirada = Convert.ToDateTime(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                ApresentaMensagem("Deve ser Informado uma Data válida... exemplo '12/12/12' ", ConsoleColor.DarkYellow);
+                PegaDadosEntidade();
+            }
+                return aquisicao;
+            
         }
         public void MostraTodosAquisicao()
         {

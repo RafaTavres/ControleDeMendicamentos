@@ -29,6 +29,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloFuncionario
         public override EntidadeBase PegaDadosEntidade()
         {
             Funcionario funcionario = new Funcionario();
+
             Console.WriteLine("Nome");
             funcionario.nome = Console.ReadLine();
             Console.WriteLine("CPF");

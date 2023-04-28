@@ -40,7 +40,16 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloMedicamento
             Console.WriteLine("Descrição");
             medicamento.descricao = Console.ReadLine();
             Console.WriteLine("Quantidade Disponível");
-            medicamento.quantidadeDisponivel = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                medicamento.quantidadeDisponivel = Convert.ToInt32(Console.ReadLine());               
+            }
+            catch (FormatException)
+            {
+                ApresentaMensagem("Dever ser uma quantidade válida",ConsoleColor.DarkYellow);
+                PegaDadosEntidade();
+            }
+
             Console.WriteLine("Bula");
             medicamento.bula = Console.ReadLine();
             return medicamento;

@@ -8,7 +8,9 @@ namespace ControleDeMendicamentos.ConsoleApp
 {
     internal abstract class EntidadeBase
     {
+
         public int id { get; set;}
         public abstract void Atualizar(EntidadeBase entidadeAtualizada);
+
     }
 }

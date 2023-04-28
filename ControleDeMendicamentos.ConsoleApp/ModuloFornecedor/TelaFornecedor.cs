@@ -39,12 +39,23 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
         public override EntidadeBase PegaDadosEntidade()
         {
             Fornecedor fornecedor = new Fornecedor();
+
             Console.WriteLine("Nome");
             fornecedor.nome = Console.ReadLine();
+
             Console.WriteLine("Telefone ");
             fornecedor.telefone = Console.ReadLine();
-            Console.WriteLine("CNPJ");
-            fornecedor.CNPJ = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("CNPJ");
+                fornecedor.CNPJ = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                ApresentaMensagem("CNPJ dever ser válido ",ConsoleColor.DarkYellow);
+                PegaDadosEntidade();
+            }
+
             return fornecedor;
         }
         public void MostraTodosFornecedor()
@@ -84,6 +95,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
             Fornecedor fornecedor = fornecedorRepository.Busca(idBusca);
 
             Console.Clear();
+
             if (VerificaListasValidas("Medicamento", medicamentoRepository) == false)
                 return null;
             else
@@ -91,6 +103,7 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuleFornecedor
             Console.WriteLine("Id do Medicamento");
             idBusca = Convert.ToInt32(Console.ReadLine());
             fornecedor.medicamentos.Add(medicamentoRepository.Busca(idBusca));
+
             return fornecedor;
         }
 

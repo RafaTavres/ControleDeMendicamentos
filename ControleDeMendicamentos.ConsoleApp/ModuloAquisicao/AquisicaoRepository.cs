@@ -25,12 +25,27 @@ namespace ControleDeMendicamentos.ConsoleApp.ModuloAquisicao
             if (aq == null)
             {
                 return true;
-            }
-            if (string.IsNullOrEmpty(aq.quantidadeAdicionada.ToString()) || string.IsNullOrWhiteSpace(aq.quantidadeAdicionada.ToString()))
+            }else
+            if (aq.medicamento == null)
             {
                 return true;
             }
-            if (string.IsNullOrEmpty(aq.funcionario.ToString()) || string.IsNullOrWhiteSpace(aq.funcionario.ToString()))
+            else
+            if (aq.fornecedor == null)
+            {
+                return true;
+            }
+            else
+            if (aq.funcionario == null)
+            {
+                return true;
+            }
+            else
+            if (string.IsNullOrEmpty(aq.quantidadeAdicionada.ToString()) || string.IsNullOrWhiteSpace(aq.quantidadeAdicionada.ToString()))
+            {
+                return true;
+            }else
+            if (string.IsNullOrEmpty(aq.quantidadeAdicionada.ToString()) || string.IsNullOrWhiteSpace(aq.quantidadeAdicionada.ToString()))
             {
                 return true;
             }
